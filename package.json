@@ -1,0 +1,40 @@
+{
+  "name": "swconfig",
+  "version": "1.0.0",
+  "description": "\u0016\"Configuration Helper for nestjs swagger users, providing clean Controller oriented methods.\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  },
+  "keywords": [
+    "swagger",
+    "docs",
+    "documentation",
+    "nestjs",
+    "swconfig"
+  ],
+  "author": "Yuri Silva",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/plugin-proposal-decorators": "^7.21.0",
+    "@babel/plugin-syntax-decorators": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-typescript": "^7.21.0",
+    "@nestjs/common": "^9.3.9",
+    "@nestjs/core": "^9.3.9",
+    "@nestjs/swagger": "^6.2.1",
+    "@types/jest": "^29.4.0",
+    "babel-jest": "^29.4.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
+    "jest": "^29.4.3",
+    "reflect-metadata": "^0.1.13",
+    "run": "^1.4.0",
+    "rxjs": "^7.8.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}
