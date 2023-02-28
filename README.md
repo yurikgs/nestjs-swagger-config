@@ -134,7 +134,7 @@ export type BasicDefaultsObject = {
 };
 ```
 
-```
+```ts
 export type DetailedDefaultsObject = {
   status: number;
   description?: string;
@@ -143,16 +143,95 @@ export type DetailedDefaultsObject = {
   modelConfig?: string;
 };
 
-ts```
 
 
+ You could set DetailedDefaultResponses() decorator like this:
 
 
+```
 
+```ts
+@DetailedDefaultResponses(...listUserDetailedDefaultsArray)
+  @Get()
+  async list() {
+    return this.userService.list();
+  }
+```
 
+```ts
+export const listUserDetailedDefaultsArray = [
+  {
+    config: statusConfigPatternsDict.standardGet,
+    mode: ObjGenModes.RemoveValues,
+    statusCodes: [200, 401, 403],
+  },
+  {
+    status: 200,
+    description: 'Ok',
+    model: UserModel,
+    modelConfig: 'array',
+  },
+  {
+    status: 400,
+    description: 'Bad Request',
+  },
+  {
+    status: 401,
+  },
+];
+```
 
-```ts```
+That would create the following responses set in your swagger ui:
 
+![image](https://user-images.githubusercontent.com/38916533/221826031-d24ffc64-011b-4890-8156-e35b311714dc.png)
 
 ### MethodDocConfig
+Combines DetailedDefaultsResponses calls with @nestjs/swagger Api Decorators (ApiOperation, ApiBody, ApiParam, ApiQuery currently supported) to create a single documentation decorator call. It accept the following object as arg (note that swagger api decorators options objects are actually all defined in @nestjs/swagger):
+
+```ts
+export type MethodDocConfigObject = {
+  responses?: ResponsesConfigObject;
+  apiOperation?: ApiOperationOptions;
+  apiBody?: ApiBodyOptions;
+  apiParam?: ApiParamOptions;
+  apiQuery?: ApiQueryOptions;
+};
+```
+```ts
+export type ResponsesConfigObject = {
+  basicDefaults?: BasicDefaultsObject;
+  detailedDefaults?: DetailedDefaultsObject[];
+  apiResponse?: ApiResponseOptions[];
+};
+```
+
+You could set MethodDocConfig() decorator like this:
+
+```ts
+  @MethodDocConfig(showUserDocConfig)
+  @Get(':id')
+  async show(@Param('id', ParseIntPipe) id: number) {
+    return this.userService.show(id);
+  }
+```
+```ts
+export const showUserDocConfig = {
+  apiParam: ShowUserApiParamConfigObject,
+  responses: {
+    basicDefaults: { config: statusConfigPatternsDict.standardGetById },
+  },
+};
+
+export const ShowUserApiParamConfigObject: ApiParamOptions = {
+  name: 'id',
+  description: 'Send the target user id as a path param ',
+};
+```
+That would create the following responses set in your swagger ui:
+![image](https://user-images.githubusercontent.com/38916533/221830268-055046e9-b87f-43e6-840d-72c2a31add70.png)
+![image](https://user-images.githubusercontent.com/38916533/221830349-493f4e3a-166d-4bef-b27d-8b3758f8ee13.png)
+
+
+
+
 
