@@ -1,14 +1,14 @@
 
-# SWCONFIG
+# NESTJS SWAGGER CONFIG
 related: nestjs, @nestjs/swagger
 
-`swconfig` for nestjs swagger allows you to develop your swagger docs still mantaining clean controllers. Define your all method docs configs with a single decorator.
+`nestjs-swagger-config` for nestjs swagger allows you to develop your swagger docs still mantaining clean controllers. Define your all method docs configs with a single decorator.
 
 ##  Install
 required: @nestjs/common. @nestjs/core, @nestjs/swagger
 
 ```bash
-$ npm install swconfig
+$ npm install nestjs-swagger-config
 ```
 
 
@@ -28,7 +28,7 @@ Use the apropriated decorator to config your method. In order to make your doc c
 ```ts
   // Swagger config objects folder
   import { UserModel } from 'src/swagger-config/models/response-models/swagger-user.model';
-import { ObjGenModes, statusConfigPatternsDict } from 'swconfig';
+import { ObjGenModes, statusConfigPatternsDict } from 'nestjs-swagger-config';
 
 export const listUserDocConfig = {
   responses: {
