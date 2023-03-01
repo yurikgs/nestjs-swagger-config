@@ -17,10 +17,9 @@
       "strictBindCallApply": false,
       "forceConsistentCasingInFileNames": false,
       "noFallthroughCasesInSwitch": false,
-      "outDir": ".",
       "rootDir": ".",
       "paths": {},
     },
-    "include": ["index.ts", "src/**/*.ts"],
-    "exclude": ["node_modules", "**/__tests__/*"] 
+    "include": ["index.ts", "src/**/*.ts",],
+    "exclude": ["node_modules", "*.d.ts"] 
 }
